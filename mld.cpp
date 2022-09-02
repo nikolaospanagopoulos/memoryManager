@@ -1,6 +1,5 @@
 #include "mld.hpp"
-#include "CustomClass.hpp"
-#include "MemoryObjModel.hpp"
+#include "MemoryObjModel.h"
 #include "cstring"
 #include <cstdlib>
 #include <list>
@@ -22,15 +21,11 @@ void getInfo() {
     free((*vecCurrent));
     vecCurrent++;
   }
-
-  std::cout << "size " << myAlloc.size() << std::endl;
 }
 
 void operator delete(void *ptr) noexcept {
   for (auto &mem : myAlloc) {
     if (mem->ptr == ptr) {
-
-      std::cout << "equal\n";
       free(mem->ptr);
       free(mem->file);
       free(mem->function);

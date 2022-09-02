@@ -21,7 +21,5 @@ int main() {
 
   ve.push_back(new int{5});
 
-  delete ve[0];
-
   getInfo();
 }

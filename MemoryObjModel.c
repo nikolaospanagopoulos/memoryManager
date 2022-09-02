@@ -1,4 +1,4 @@
-#include "MemoryObjModel.hpp"
+#include "MemoryObjModel.h"
 #include <stdlib.h>
 
 void setValues(MemoryObj *memory, void *address, char *filename,
@@ -8,10 +8,10 @@ void setValues(MemoryObj *memory, void *address, char *filename,
   memory->file = filename;
   memory->line = lineNumber;
   memory->ptr = address;
-
-  printf("setting value : %s,%s \n", memory->file, memory->function);
 }
 
 void getMemInfo(const MemoryObj *memory) {
-  printf("the allocation happened at file: %s", memory->file);
+  printf("the leaked memory was allocated at file: %s, and at function: %s , "
+         "and on line: %d \n",
+         memory->file, memory->function, memory->line);
 }

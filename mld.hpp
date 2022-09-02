@@ -1,7 +1,4 @@
-// myNew5.hpp
-
-#ifndef MY_NEW5
-#define MY_NEW5
+#pragma once
 
 #include <algorithm>
 #include <cstdlib>
@@ -19,9 +16,7 @@ void *operator new[](std::size_t sz, char const *file, int line,
                      char const *function);
 
 void getInfo();
-#define new new (__FILE__, __LINE__, __FUNCTION__)
+#define new new (__FILE__, __LINE__, __PRETTY_FUNCTION__)
 void operator delete(void *ptr) noexcept;
 
 #define delete delete
-
-#endif // MY_NEW5
